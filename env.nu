@@ -74,4 +74,4 @@ let-env PATH = ($env.PATH | prepend '/usr/local/bin')
 mkdir ~/.cache/starship
 starship init nu | save --force ~/.cache/starship/init.nu
 
-let-env EDITOR = "hx"
+let-env EDITOR = "nvim"
