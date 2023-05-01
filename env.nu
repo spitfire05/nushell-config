@@ -76,3 +76,22 @@ let-env NU_PLUGIN_DIRS = [
 
 # To add entries to PATH (on Windows you might use Path), you can use the following pattern:
 # let-env PATH = ($env.PATH | split row (char esep) | prepend '/some/path')
+
+let is_windows = (sys | get host | get name) == 'Windows'
+
+# Homebrew
+if not $is_windows {
+    let-env PATH = ($env.PATH | prepend '/opt/homebrew/bin')
+}
+
+# Cargo
+if not $is_windows {
+    let-env PATH = ($env.PATH | prepend '.cargo/bin')
+}
+
+# /usr/local/bin
+if not $is_windows {
+    let-env PATH = ($env.PATH | prepend '/usr/local/bin')
+}
+
+let-env EDITOR = nvim
